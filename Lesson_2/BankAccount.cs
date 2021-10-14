@@ -33,15 +33,13 @@ namespace Lesson_2
 			set => _type = value;
 		}
 
-		public BankAccount(string id, AccountType type)
+		public BankAccount(AccountType type)
 		{
-			_id = id;
+			_id = Guid.NewGuid().ToString();
 			Type = type;
 		}
-		public BankAccount(string id, AccountType type, decimal balance)
+		public BankAccount(AccountType type, decimal balance) : this(type)
 		{
-			_id = id;
-			Type = type;
 			Balance = balance;
 		}
 
