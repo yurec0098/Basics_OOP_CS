@@ -21,7 +21,7 @@ namespace Lesson_2
 		decimal _balance;
 		AccountType _type;
 
-		public string ID => _id;	//	Номер счёта не должен меняться
+		public string ID => _id;    //	Номер счёта не должен меняться
 		public decimal Balance
 		{
 			get => _balance;
@@ -35,7 +35,7 @@ namespace Lesson_2
 
 		public BankAccount(AccountType type)
 		{
-			_id = Guid.NewGuid().ToString();
+			_id = $"{Guid.NewGuid()}";
 			Type = type;
 		}
 		public BankAccount(AccountType type, decimal balance) : this(type)
