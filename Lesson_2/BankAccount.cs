@@ -19,7 +19,7 @@ namespace Lesson_2
 	Для этого надо создать в классе статическую переменную и метод, который увеличивает значение этого переменной.*/
 	public class BankAccount
 	{
-		public override string ToString() => $"[{ID}] ({Type}) {Balance}";
+		public override string ToString() => $"[{GetID()}] ({GetAccType()}) {GetBalance()}";
 
 		static decimal LastID = 0;
 
@@ -27,34 +27,37 @@ namespace Lesson_2
 		decimal _balance;
 		AccountType _type;
 
-		public decimal ID => _id;    //	Номер счёта не должен меняться
-		public decimal Balance
+		public decimal GetID()
 		{
-			get => _balance;
-			set => _balance = value;
-		}
-		public AccountType Type
-		{
-			get => _type;
-			set => _type = value;
+			if (_id == 0)
+				_id = NewID();
+			return _id;
 		}
 
-		public BankAccount(AccountType type)
+		public decimal GetBalance()
 		{
-			_id = NewID();
-			Type = type;
+			return _balance;
 		}
-		public BankAccount(AccountType type, decimal balance) : this(type)
+		public void SetBalance(decimal value)
 		{
-			Balance = balance;
+			_balance = value;
+		}
+
+		public AccountType GetAccType()
+		{
+			return _type;
+		}
+		public void SetAccType(AccountType value)
+		{
+			_type = value;
 		}
 
 		public string Print()
 		{
-			return $"Account: {ID}{Environment.NewLine}Acoount type: {Type}{Environment.NewLine}Balance: {Balance}";
+			return $"Account: {GetID()}{Environment.NewLine}Acoount type: {GetAccType()}{Environment.NewLine}Balance: {GetBalance()}";
 		}
 
-		private decimal NewID()
+		private static decimal NewID()
 		{
 			return ++LastID;
 		}
