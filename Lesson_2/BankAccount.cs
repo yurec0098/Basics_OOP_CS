@@ -11,41 +11,46 @@ namespace Lesson_2
 	};
 
 	/*1. Создать класс счет в банке с закрытыми полями: номер счета, баланс, тип банковского счета (использовать перечислимый тип).
-	 * Предусмотреть методы для доступа к данным – заполнения и чтения.
-	 * Создать объект класса, заполнить его поля и вывести информацию об объекте класса на печать.*/
+	Предусмотреть методы для доступа к данным – заполнения и чтения.
+	Создать объект класса, заполнить его поля и вывести информацию об объекте класса на печать.*/
 	public class BankAccount
 	{
-		public override string ToString() => $"[{ID}] ({Type}) {Balance}";
+		public override string ToString() => $"[{GetID()}] ({GetType()}) {GetBalance()}";
 
-		string _id;
+		decimal _id;
 		decimal _balance;
 		AccountType _type;
 
-		public string ID => _id;    //	Номер счёта не должен меняться
-		public decimal Balance
+		public decimal GetID()
 		{
-			get => _balance;
-			set => _balance = value;
+			return _id;
 		}
-		public AccountType Type
+		public void SetID(decimal value)
 		{
-			get => _type;
-			set => _type = value;
+			_id = value;
 		}
 
-		public BankAccount(AccountType type)
+		public decimal GetBalance()
 		{
-			_id = $"{Guid.NewGuid()}";
-			Type = type;
+			return _balance;
 		}
-		public BankAccount(AccountType type, decimal balance) : this(type)
+		public void SetBalance(decimal value)
 		{
-			Balance = balance;
+			_balance = value;
+		}
+
+		public AccountType GetAccType()
+		{
+			return _type;
+		}
+		public void SetAccType(AccountType value)
+		{
+			_type = value;
 		}
 
 		public string Print()
 		{
-			return $"Account: {ID}{Environment.NewLine}Acoount type: {Type}{Environment.NewLine}Balance: {Balance}";
+			return $"Account: {GetID()}{Environment.NewLine}Acoount type: {GetAccType()}{Environment.NewLine}Balance: {GetBalance()}";
 		}
 	}
 }
