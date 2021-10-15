@@ -32,7 +32,7 @@ namespace Lesson_2
 	*/
 	public class BankAccount
 	{
-		public override string ToString() => $"[{ID}] ({Type}) {Balance}";
+		public override string ToString() => $"[{GetID()}] ({GetAccType()}) {GetBalance()}";
 
 		static decimal LastID = 0;
 
@@ -40,16 +40,17 @@ namespace Lesson_2
 		decimal _balance;
 		AccountType _type;
 
-		public decimal ID => _id;    //	Номер счёта не должен меняться
-		public decimal Balance
+		public decimal GetID()
 		{
-			get => _balance;
-			set => _balance = value;
+			return _id;
 		}
-		public AccountType Type
+		public decimal GetBalance()
 		{
-			get => _type;
-			set => _type = value;
+			return _balance;
+		}
+		public AccountType GetAccType()
+		{
+			return _type;
 		}
 
 		public BankAccount()
@@ -59,23 +60,23 @@ namespace Lesson_2
 		public BankAccount(decimal balance)
 		{
 			_id = NewID();
-			Balance = balance;
+			_balance = balance;
 		}
 		public BankAccount(AccountType type)
 		{
 			_id = NewID();
-			Type = type;
+			_type = type;
 		}
 		public BankAccount(AccountType type, decimal balance)
 		{
 			_id = NewID();
-			Type = type;
-			Balance = balance;
+			_type = type;
+			_balance = balance;
 		}
 
 		public string Print()
 		{
-			return $"Account: {ID}{Environment.NewLine}Acoount type: {Type}{Environment.NewLine}Balance: {Balance}";
+			return $"Account: {GetID()}{Environment.NewLine}Acoount type: {GetAccType()}{Environment.NewLine}Balance: {GetBalance()}";
 		}
 
 		private decimal NewID()
