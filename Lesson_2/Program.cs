@@ -8,7 +8,10 @@ namespace Lesson_2
 		{
 			var bankAccount = new BankAccount(AccountType.Current, 250);
 			bankAccount.AccType = AccountType.Payments;
-			bankAccount.Balance += 100;
+			bankAccount.AddBalance(100);
+			
+			if(!bankAccount.PullBalance(500))
+				Console.WriteLine("Недостаточно средств!");
 
 			Console.WriteLine(bankAccount.Print());
 		}

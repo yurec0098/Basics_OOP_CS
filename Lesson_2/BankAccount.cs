@@ -82,5 +82,19 @@ namespace Lesson_2
 		{
 			return ++LastID;
 		}
+
+		public void AddBalance(decimal money)
+		{
+			Balance += money;
+		}
+		public bool PullBalance(decimal money)
+		{
+			if (Balance >= money)
+			{
+				Balance -= money;
+				return true;
+			}
+			return false;
+		}
 	}
 }
