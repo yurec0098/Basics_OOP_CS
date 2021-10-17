@@ -6,7 +6,7 @@ namespace Lesson_2
 	{
 		static void Main(string[] args)
 		{
-			var bankAccount = new BankAccount(AccountType.Current, 250);
+			var bankAccount = new BankAccount(AccountType.Current, 250); 
 			bankAccount.AccType = AccountType.Payments;
 			bankAccount.AddBalance(100);
 			
