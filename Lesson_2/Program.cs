@@ -6,7 +6,11 @@ namespace Lesson_2
 	{
 		static void Main(string[] args)
 		{
-			var bankAccount = new BankAccount(AccountType.Current, 250);
+			var bankAccount = new BankAccount();
+			bankAccount.SetID(1);
+			bankAccount.SetAccType(AccountType.Current);
+			bankAccount.SetBalance(250);
+
 			Console.WriteLine(bankAccount.Print());
 		}
 	}
