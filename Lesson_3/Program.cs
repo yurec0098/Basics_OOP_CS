@@ -15,12 +15,24 @@ namespace Lesson_3
 			//else
 			//	Console.WriteLine("Перевод денег не удался");
 
-			var str1 = "abc123";
-			var str2 = "321cba";
-			if (ReverseString(str1).Equals(str2))
-				Console.WriteLine("Построение строки в обратном порядке прошло успешно");
-			else
-				Console.WriteLine("Результат построения строки в обратном порядке не прошёл проверку");
+			//var str1 = "abc123";
+			//var str2 = "321cba";
+			//if (ReverseString(str1).Equals(str2))
+			//	Console.WriteLine("Построение строки в обратном порядке прошло успешно");
+			//else
+			//	Console.WriteLine("Результат построения строки в обратном порядке не прошёл проверку");
+
+			var parser = new EMailParser();
+			//var text = "Мизинцев Павел Николаевич & Pasha@mail.ru";
+			//parser.SearchMail(ref text);
+			//Console.WriteLine(text);
+
+			//var list = parser.ParseFullNameAndEMailFromFile("TextFile1.txt");
+			//foreach (var x in list)
+			//	Console.WriteLine(x);
+
+			//parser.WriteEmailsToFile("TextFile2.txt", list);
+			parser.ParseEmailFromFileAndWriteNewFile("TextFile1.txt", "TextFile2.txt");
 		}
 
 		static string ReverseString(string text)
