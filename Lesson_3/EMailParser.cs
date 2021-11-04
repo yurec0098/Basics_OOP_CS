@@ -51,9 +51,9 @@ namespace Lesson_3
 
 		public void WriteEmailsToFile(string fileName, List<FullNameAndEMail> mails)
 		{
-			using (StreamWriter sw = new StreamWriter(File.Create(fileName)))
-				foreach (var mail in mails)
-					sw.WriteLine(mail.Email);
+			using var sw = new StreamWriter(File.Create(fileName));
+			foreach (var mail in mails)
+				sw.WriteLine(mail.Email);
 		}
 
 		public void ParseEmailFromFileAndWriteNewFile(string fileNameInput, string fileNameOutput)
