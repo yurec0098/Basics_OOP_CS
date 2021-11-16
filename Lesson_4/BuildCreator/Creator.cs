@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Collections;
+﻿using System.Collections;
 
-namespace Lesson_4
+namespace Lesson_4.BuildCreator
 {
 	/*
 	2. * Для реализованного класса создать новый класс Creator, который будет являться фабрикой объектов класса здания.
@@ -24,13 +19,13 @@ namespace Lesson_4
 		public static Build CreateBuild()
 		{
 			Build build = new Creator();
-			Builds.Add(build.GetID() ,build);
+			Builds.Add(build.GetID(), build);
 			return build;
 		}
 
 		public static void DeleteBuild(int id)
 		{
-			if(Builds.ContainsKey(id))
+			if (Builds.ContainsKey(id))
 				Builds.Remove(id);
 		}
 	}

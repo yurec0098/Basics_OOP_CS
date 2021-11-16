@@ -6,4 +6,14 @@
     <AnalysisLevel>preview</AnalysisLevel>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="BuildCreator\**" />
+    <EmbeddedResource Remove="BuildCreator\**" />
+    <None Remove="BuildCreator\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="BuildCreator\BuildCreator.csproj" />
+  </ItemGroup>
+
 </Project>
